@@ -1,38 +1,35 @@
-1.WAP to input ‘n’numbers and sort them in ascending order.
-#include<stdio.h>
-main()
+1.WAP to input â€˜nâ€™numbers and sort them in ascending order.
 #include <stdio.h>
-    int main()
-    {
- 
-        int i, j, a, n, number[30];
-        printf("Enter the value of N \n");
-        scanf("%d", &n);
- 
-        printf("Enter the numbers \n");
-        for (i = 0; i < n; ++i)
-            scanf("%d", &number[i]);
- 
-        for (i = 0; i < n; ++i) 
-        {
- 
-            for (j = i + 1; j < n; ++j)
-            {
- 
-                if (number[i] > number[j]) 
-                {
- 
-                    a =  number[i];
-                    number[i] = number[j];
-                    number[j] = a;
- 
-                }
- 
-            }
- 
-        }
- 
-        printf("The numbers arranged in ascending order are given below \n");
-        for (i = 0; i < n; ++i)
-            printf("%d\n", number[i]);
+
+void sort(int x[], int n);
+
+int main() {
+    int x[100], n;
+    printf("Enter the size of the array not more than 100 \n");
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) {
+        printf("\nEnter the array element %d: ", i + 1);
+        scanf("%d", &x[i]);
     }
+    sort(x, n);
+    return 0;
+}
+
+void sort(int x[], int n) {
+    int i, j, temp;
+    for (i = 0; i < n - 1; i++) {
+        for (j = i + 1; j < n; j++) {
+            if (x[i] > x[j]) {
+                temp = x[i];
+                x[i] = x[j];
+                x[j] = temp;
+            }
+        }
+    }
+    printf("\nThe numbers in sorted order are: ");
+    for (i = 0; i < n; i++)
+        printf("%d ", x[i]);
+}
+
+    
+    
